@@ -60,6 +60,11 @@ angular
         controller: 'RecursosAdministracionCtrl',
         controllerAs: 'recursosAdministracion'
       })
+      .when('/recursos/agregar_padre', {
+        templateUrl: 'views/recursos/agregar_padre.html',
+        controller: 'RecursosAgregarPadreCtrl',
+        controllerAs: 'agregarPadre'
+      })
       .otherwise({
         redirectTo: '/'
       });

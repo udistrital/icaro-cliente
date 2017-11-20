@@ -8,7 +8,7 @@
  * Controller of the icaroClienteApp
  */
 angular.module('icaroClienteApp')
-  .controller('RecursosAdministracionCtrl', function ($translate) {
+  .controller('RecursosAdministracionCtrl', function ($translate,$mdDialog) {
     var self = this;
 
     //GRID RECURSOS
@@ -55,6 +55,21 @@ angular.module('icaroClienteApp')
       }
     };
     //GRID RECURSOS
+
+
+    //Función para asignar controlador de la vista agregar_padre.html
+    self.AgregarPadre = function(){
+      $mdDialog.show({
+        controller: "RecursosAgregarPadreCtrl",
+        controllerAs: 'agregarPadre',
+        templateUrl: 'views/recursos/agregar_padre.html',
+        parent: angular.element(document.body),
+        clickOutsideToClose:true,
+        fullscreen: true,
+        //locals: {idResolucion: row.entity.Id}
+      })
+    }
+
 
     // JSON PRUEBA
     self.gridOptionsRecursos.data = [
