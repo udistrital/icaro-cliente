@@ -41,9 +41,9 @@ angular.module('icaroClienteApp')
       rowHeight: 40,
       columnDefs : [
       {field: 'Id',cellTemplate: '<div align="center">{{row.entity.Id}}</div>',width:'10%'},
-      {field: 'TipoCampo',cellTemplate: '<div align="center">{{row.entity.TipoCampo}}</div>',width:'30%'},
-      {field: 'TextoCampo',cellTemplate: '<div align="center">{{row.entity.TextoCampo}}</div>',width:'30%'},
-      {field: 'Requerido',cellTemplate: '<div align="center">{{row.entity.Requerido}}</div>',width:'15%'},
+      {field: 'TipoCampo',cellTemplate: '<div align="center">{{row.entity.TipoCampo}}</div>',width:'25%'},
+      {field: 'TextoCampo',cellTemplate: '<div align="center">{{row.entity.TextoCampo}}</div>',width:'25%'},
+      {field: 'Requerido',cellTemplate: '<div align="center">{{row.entity.Requerido}}</div>',width:'25%'},
       {field: 'Quitar',cellTemplate: '<div align="center"><button button type="button" class="btn btn-danger" ng-click="grid.appScope.agregarHijo.quitar_caracterizacion(row.entity)">Quitar</button></div>',width:'15%'},
     ]
     };    

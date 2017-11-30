@@ -8,10 +8,8 @@
  * Controller of the icaroClienteApp
  */
 angular.module('icaroClienteApp')
-  .controller('RecursosEditarRecursoCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('RecursosEditarRecursoCtrl', function (recurso) {
+    self=this;
+    self.recurso=recurso;
+    console.log(self.recurso);
   });

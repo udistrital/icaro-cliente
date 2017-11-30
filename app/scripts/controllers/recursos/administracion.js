@@ -47,7 +47,7 @@ angular.module('icaroClienteApp')
         {
           field: 'Acciones',
           displayName: 'Acciones',
-          cellTemplate: '<div><div class="col-md-3"><a><span class="fa fa-plus" ng-click="grid.appScope.AgregarHijo()"></span></a></div> <div class="col-md-3 "><a><span class="fa fa-pencil"></span></a></div> <div class="col-md-3"><a><span class="fa fa-toggle-on"></span></a></div></div>',
+          cellTemplate: '<div><div class="col-md-3"><a><span class="fa fa-plus" ng-click="grid.appScope.agregar_hijo()"></span></a></div> <div class="col-md-3"><a><span class="fa fa-pencil" ng-click="grid.appScope.editar_recurso(row.entity)"></span></a></div> <div class="col-md-3"><a><span class="fa fa-toggle-on" ng-click="grid.appScope.recursosAdministracion.cambiar_estado(row.entity)"></span></a></div></div>',
           width: "10%",
         },
       ],
@@ -58,7 +58,7 @@ angular.module('icaroClienteApp')
     //GRID RECURSOS
 
     //Función para asignar controlador de la vista agregar_hijo.html
-    $scope.AgregarHijo = function(){
+    $scope.agregar_hijo = function(){
       $mdDialog.show({
         controller: "RecursosAgregarHijoCtrl",
         controllerAs: 'agregarHijo',
@@ -71,9 +71,22 @@ angular.module('icaroClienteApp')
       })
     }
 
+    //Función para asignar controlador de la vista editar_hijo.html
+    $scope.editar_recurso = function(row){
+      $mdDialog.show({
+        controller: "RecursosEditarRecursoCtrl",
+        controllerAs: 'editarRecurso',
+        templateUrl: 'views/recursos/editar_recurso.html',
+        parent: angular.element(document.body),
+        clickOutsideToClose:true,
+        fullscreen: true,
+        width: 300,
+        locals: {recurso: row}
+      })
+    }
 
     //Función para asignar controlador de la vista agregar_padre.html
-    $scope.AgregarPadre = function(){
+    $scope.agregar_padre = function(){
       $mdDialog.show({
         controller: "RecursosAgregarPadreCtrl",
         controllerAs: 'agregarPadre',
@@ -84,6 +97,11 @@ angular.module('icaroClienteApp')
         //locals: {idResolucion: row.entity.Id}
       })
     }
+
+    //funcion que se ejecuta al darle click al boton de editar estado
+    self.cambiar_estado = function(row){
+      console.log(row);
+    };
 
 
     // JSON PRUEBA
