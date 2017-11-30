@@ -466,3 +466,7 @@ p {
 body {
   font-family: 'robotolight';
 }
+
+textarea {
+  resize: none;
+}

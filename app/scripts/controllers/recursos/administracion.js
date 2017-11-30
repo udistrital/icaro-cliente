@@ -8,12 +8,13 @@
  * Controller of the icaroClienteApp
  */
 angular.module('icaroClienteApp')
-  .controller('RecursosAdministracionCtrl', function ($translate,$mdDialog) {
+  .controller('RecursosAdministracionCtrl', function ($translate,$mdDialog,$scope) {
     var self = this;
 
     //GRID RECURSOS
     self.gridOptionsRecursos = {
       enableSelectAll: false,
+      enableRowSelection: false, 
       enableRowHeaderSelection: false,
       enableSorting: true,
       enableFiltering: true,
@@ -46,7 +47,7 @@ angular.module('icaroClienteApp')
         {
           field: 'Acciones',
           displayName: 'Acciones',
-          cellTemplate: '<div><div class="col-md-3"><a><span class="fa fa-plus"></span></a></div> <div class="col-md-3 "><a><span class="fa fa-pencil"></span></a></div> <div class="col-md-3"><a><span class="fa fa-toggle-on"></span></a></div></div>',
+          cellTemplate: '<div><div class="col-md-3"><a><span class="fa fa-plus" ng-click="grid.appScope.AgregarHijo()"></span></a></div> <div class="col-md-3 "><a><span class="fa fa-pencil"></span></a></div> <div class="col-md-3"><a><span class="fa fa-toggle-on"></span></a></div></div>',
           width: "10%",
         },
       ],
@@ -56,9 +57,23 @@ angular.module('icaroClienteApp')
     };
     //GRID RECURSOS
 
+    //Función para asignar controlador de la vista agregar_hijo.html
+    $scope.AgregarHijo = function(){
+      $mdDialog.show({
+        controller: "RecursosAgregarHijoCtrl",
+        controllerAs: 'agregarHijo',
+        templateUrl: 'views/recursos/agregar_hijo.html',
+        parent: angular.element(document.body),
+        clickOutsideToClose:true,
+        fullscreen: true,
+        width: 300,
+        //locals: {idResolucion: row.entity.Id}
+      })
+    }
+
 
     //Función para asignar controlador de la vista agregar_padre.html
-    self.AgregarPadre = function(){
+    $scope.AgregarPadre = function(){
       $mdDialog.show({
         controller: "RecursosAgregarPadreCtrl",
         controllerAs: 'agregarPadre',

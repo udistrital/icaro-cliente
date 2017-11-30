@@ -33,6 +33,7 @@ angular
     'angularMoment',
     'ui.utils.masks',
     'pascalprecht.translate',
+    'financieraService'
   ])
   .run(function(amMoment) {
     amMoment.changeLocale('es');
@@ -64,6 +65,16 @@ angular
         templateUrl: 'views/recursos/agregar_padre.html',
         controller: 'RecursosAgregarPadreCtrl',
         controllerAs: 'agregarPadre'
+      })
+      .when('/recursos/agregar_hijo', {
+        templateUrl: 'views/recursos/agregar_hijo.html',
+        controller: 'RecursosAgregarHijoCtrl',
+        controllerAs: 'agregarHijo'
+      })
+      .when('/recursos/editar_recurso', {
+        templateUrl: 'views/recursos/editar_recurso.html',
+        controller: 'RecursosEditarRecursoCtrl',
+        controllerAs: 'editarRecurso'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,0 +1,99 @@
+<div class="panel panel-default">
+    <div class="panel-heading" align="center">
+        <h4><b>Agregar Recurso Hijo</b></h4>
+    </div>
+
+    <div class="panel-body">
+
+     <div ng-if="agregarHijo.datos_bool">
+        <h4 align="center"><b>Datos básicos del recurso</b></h4>
+       <div class="col-md-12">
+           <br><br>
+          <div class="col-md-2"><h5><b>Nombre</b></h5></div>
+          <div class="col-md-9"><input type="text" class="form-control" id="nombreRecurso"></div>
+          <br><br><br>
+       </div>
+
+       <div class="col-md-12">
+            <div class="col-md-2"><h5><b>Descripción</b></h5></div>
+            <div class="col-md-9"><textarea class="form-control" rows="4" id="descripcionRecurso"></textarea></div>
+        </div>
+
+        <div class="col-md-12">
+            <br>
+            <div class="col-md-2"><h5><b>Estado</b></h5></div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <select class="form-control" id="estadoRecurso">
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12" align="center">
+                    <ul class="pager">
+                        <li ng-click="agregarHijo.datos_bool=false;agregarHijo.rubros_bool=true;agregarHijo.datos_basicos_completo()"><a>Siguiente</a></li>
+                    </ul> 
+            </div>
+        </div>
+        </div>
+
+    <div ng-if="agregarHijo.rubros_bool">
+        <h4 align="center"><b>Rubros del recurso</b></h4>
+        <br><br>
+        <div ui-grid='agregarHijo.gridOptionsRubros' ui-grid-selection ui-grid-auto-resize class="myGrid col-md-10 col-md-offset-1" style="height:250px">
+        </div>
+
+        <div class="col-md-12" align="center">
+            <ul class="pager">
+                <li ng-click="agregarHijo.rubros_bool=false;agregarHijo.datos_bool=true"><a>Anterior</a></li>
+                <li ng-click="agregarHijo.rubros_bool=false;agregarHijo.caracterizacion_bool=true"><a>Siguiente</a></li>
+            </ul> 
+        </div>
+    </div>
+
+        <div ng-if="agregarHijo.caracterizacion_bool">
+            <h4 align="center"><b>Caracterización de recursos</b></h4>
+            <br>
+            <div class="col-md-5">
+                <div align="center"><h4><b>Agregar campo caracterización</b></h4></div>
+                <br>
+                <div class="col-md-4">Tipo campo</div><div class="col-md-7 col-md-offset-1"> 
+                    <div class="form-group">
+                        <select class="form-control" id="tipoCampoRecurso">
+                            <option>Numero</option>
+                            <option>Texto</option>
+                            <option>Lista</option>
+                            <option>Fecha</option>
+                        </select>
+                    </div> 
+                </div>
+                <br><br>
+                <div class="col-md-4">Texto campo</div><div class="col-md-7 col-md-offset-1"><input id="textoCampoRecurso" type="text" class="form-control"></div>
+                <br><br><br>
+                <div class="col-md-4">Requerido</div><div class="col-md-7 col-md-offset-1"> <input id="RequeridoRecurso" type="checkbox" value=""></div>
+                <br><br>
+                <div class="col-md-12" align="center"><button button type="button" class="btn btn-success" ng-click="agregarHijo.agregar_caracterizacion()">Agregar</button></div>
+            </div>
+
+            <div class="col-md-7">
+                    <div align="center"><h4><b>Campos de caracterización agregados</b></h4></div>
+                    <br>
+                    <div ui-grid='agregarHijo.gridOptionsCaracterizacion' ui-grid-selection ui-grid-auto-resize class="myGrid col-md-10 col-md-offset-1" style="height:160px">  
+                    </div>
+            </div>
+
+            <div class="col-md-12" align="center">
+                <br><br>
+                <button button type="button" class="btn-lg btn-success">Agregar recurso hijo</button>
+            </div>
+
+            <div class="col-md-12" align="center">
+                <ul class="pager">
+                    <li ng-click="agregarHijo.caracterizacion_bool=false;agregarHijo.rubros_bool=true"><a>Anterior</a></li>
+                </ul> 
+            </div>
+        </div>
+    </div>
+</div>
+
