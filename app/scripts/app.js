@@ -68,7 +68,7 @@ angular
       .when('/recursos/agregar_padre', {
         templateUrl: 'views/recursos/agregar_padre.html',
         controller: 'RecursosAgregarPadreCtrl',
-        controllerAs: '/recursos/agregarPadre'
+        controllerAs: 'agregarPadre'
       })
       .when('/recursos/editar_recurso', {
         templateUrl: 'views/recursos/editar_recurso.html',
