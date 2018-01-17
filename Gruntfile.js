@@ -1,4 +1,4 @@
-// Generated on 2017-11-14 using generator-oas 0.0.10
+// Generated on 2017-12-29 using generator-oas 0.1.5
 'use strict';
 
 // # Globbing
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/scripts/{,**/}*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/{,**/}*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -382,11 +382,16 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
-        }, 
-        { expand: true, 
-        cwd: '<%= yeoman.app %>/bower_components/font-awesome', 
-        src: 'fonts/*', 
-        dest: '<%= yeoman.dist %>' 
+        },{
+          expand: true,
+          cwd: '<%= yeoman.app %>/views',
+          src: '**/*.html',
+          dest: '<%= yeoman.dist %>/views'
+        },{
+          expand : true,
+          cwd : 'bower_components/angular-ui-grid',
+          src : ['*.eot','*.svg','*.ttf','*.woff'],
+          dest : '<%= yeoman.dist %>/styles'
         },{
           expand: true,
           cwd: '.tmp/images',

@@ -3,7 +3,7 @@
 describe('Controller: RecursosAdministracionCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('contractualClienteApp'));
+  beforeEach(module('icaroClienteApp'));
 
   var RecursosAdministracionCtrl,
     scope;

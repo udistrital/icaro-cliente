@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on 2017-11-14
+// Generated on 2017-12-29
 
 module.exports = function(config) {
   'use strict';
@@ -24,7 +24,9 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-animate/angular-animate.js',
+      'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-cookies/angular-cookies.js',
+      'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
@@ -32,8 +34,6 @@ module.exports = function(config) {
       'bower_components/angular-ui-grid/ui-grid.js',
       'bower_components/angular-md5/angular-md5.js',
       'bower_components/AngularJS-OAuth2/dist/angularJsOAuth2.js',
-      'bower_components/angular-aria/angular-aria.js',
-      'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-tree-control/angular-tree-control.js',
       'bower_components/pdfmake/build/pdfmake.js',
@@ -46,9 +46,6 @@ module.exports = function(config) {
       'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-translate/angular-translate.js',
       'bower_components/sweetalert2/dist/sweetalert2.js',
-      'bower_components/angular-timelinejs3/dist/js/ng-timeline.js',
-      'bower_components/chart.js/dist/Chart.js',
-      'bower_components/vis/dist/vis.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

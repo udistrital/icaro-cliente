@@ -1,3 +1,16 @@
+/* NOTIFICATION*/
+
+.img-responsive{
+    max-width: 100px;
+    height: 80px;
+    background-color: #6C7A89;
+    margin: 1%
+}
+
+.notificacion_vista{
+    color: #e74c3c;
+}
+
 /*style footer */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
 footer { background-color:#0c1a1e; min-height:350px; font-family: 'Open Sans', sans-serif; }
@@ -445,28 +458,4 @@ table.dataTable thead .sorting:after {
   color: white;
   background-color: rgba(0, 62, 101, 1);
   border-color: #ddd;
-}
-
-p {
-  font-size: 1em;
-  color: #666;
-  font-family: 'robotolight';
-}
-
-@font-face {
-  font-family: 'robotolight';
-  src: url('../fonts/roboto-light-webfont.eot');
-  src: url('../fonts/roboto-light-webfont.eot?#iefix');
-  src: url('../fonts/roboto-light-webfont.woff2');
-  src: url('../fonts/roboto-light-webfont.woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-body {
-  font-family: 'robotolight';
-}
-
-textarea {
-  resize: none;
 }

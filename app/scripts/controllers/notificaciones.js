@@ -8,7 +8,7 @@
  * Controller of the icaroClienteApp
  */
 angular.module('icaroClienteApp')
-.controller('NotificacionesCtrl', function($scope, notificacion) {
-  $scope.imagePath = 'images/yeoman.png';
-  $scope.notificacion = notificacion;
-});
+  .controller('NotificacionesCtrl', function($scope, notificacion) {
+    $scope.imagePath = 'images/yeoman.png';
+    $scope.notificacion = notificacion;
+  });

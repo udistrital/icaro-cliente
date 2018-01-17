@@ -11,7 +11,9 @@
 angular
   .module('icaroClienteApp', [
     'ngAnimate',
+    'ngAria',
     'ngCookies',
+    'ngMessages',
     'ngResource',
     'ngRoute',
     'ngSanitize',
@@ -25,19 +27,16 @@ angular
     'ui.grid.cellNav',
     'ui.grid.treeView',
     'ui.grid.selection',
-    'ui.grid.pagination',
     'ui.grid.exporter',
-    'ui.grid.autoResize',
     'ngStorage',
     'ngWebSocket',
     'angularMoment',
     'ui.utils.masks',
-    'pascalprecht.translate',
-    'financieraService'
+    'pascalprecht.translate'
   ])
-  .run(function(amMoment) {
-    amMoment.changeLocale('es');
-})
+    .run(function(amMoment) {
+      amMoment.changeLocale('es');
+    })
     .config(['$locationProvider','$routeProvider', function($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix("");
       $routeProvider
@@ -46,35 +45,35 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
       .when('/notificaciones', {
         templateUrl: 'views/notificaciones.html',
         controller: 'NotificacionesCtrl',
         controllerAs: 'notificaciones'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
       })
       .when('/recursos/administracion', {
         templateUrl: 'views/recursos/administracion.html',
         controller: 'RecursosAdministracionCtrl',
         controllerAs: 'recursosAdministracion'
       })
-      .when('/recursos/agregar_padre', {
-        templateUrl: 'views/recursos/agregar_padre.html',
-        controller: 'RecursosAgregarPadreCtrl',
-        controllerAs: 'agregarPadre'
-      })
       .when('/recursos/agregar_hijo', {
         templateUrl: 'views/recursos/agregar_hijo.html',
         controller: 'RecursosAgregarHijoCtrl',
         controllerAs: 'agregarHijo'
       })
+      .when('/recursos/agregar_padre', {
+        templateUrl: 'views/recursos/agregar_padre.html',
+        controller: 'RecursosAgregarPadreCtrl',
+        controllerAs: '/recursos/agregarPadre'
+      })
       .when('/recursos/editar_recurso', {
         templateUrl: 'views/recursos/editar_recurso.html',
         controller: 'RecursosEditarRecursoCtrl',
-        controllerAs: 'editarRecurso'
+        controllerAs: '/recursos/editarRecurso'
       })
       .otherwise({
         redirectTo: '/'

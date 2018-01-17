@@ -7,8 +7,8 @@
  * # financieraService
  * Factory in the icaroClienteApp.
  */
-angular.module('financieraService', [])
-  .factory('financieraRequest', function ($http) {
+angular.module('icaroClienteApp')
+  .factory('financieraService', function ($http) {
     // Service logic
     // ...
     var path = "http://10.20.0.254/financiera_api/v1/";

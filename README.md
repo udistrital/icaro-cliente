@@ -1,7 +1,7 @@
 # icaro-cliente
 
 This project is generated with [yo oas-generator](https://github.com/fabianLeon/oas)
-version 0.0.10.
+version 0.1.5.
 
 ## Build & development
 

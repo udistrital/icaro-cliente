@@ -8,7 +8,7 @@
  * Controller of the icaroClienteApp
  */
 angular.module('icaroClienteApp')
-  .controller('RecursosAgregarHijoCtrl', function (financieraRequest,$scope) {
+  .controller('RecursosAgregarHijoCtrl', function (financieraService,$scope) {
     self = this;
     self.datos_bool = true;
     self.rubros_bool = false;
@@ -48,7 +48,7 @@ angular.module('icaroClienteApp')
     ]
     };    
 
-    financieraRequest.get('apropiacion','').then(function(response) {
+    financieraService.get('apropiacion','').then(function(response) {
       self.gridOptionsRubros.data = response.data;
     });
 
