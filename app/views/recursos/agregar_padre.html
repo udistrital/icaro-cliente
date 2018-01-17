@@ -1,36 +1,68 @@
-<div class="panel panel-default">
-    <div class="panel-heading" align="center">
-        <h4><b>Agregar Recurso Padre</b></h4>
-    </div>
-    <div class="panel-body">
-       <div class="col-md-12">
-          <div class="col-md-3"><h5><b>Nombre</b></h5></div>
-          <div class="col-md-9"><input type="text" class="form-control" id="nombrePadre"></div>
-       </div>
+<md-dialog aria-label="List dialog">
 
-       <br><br><br>
-       <div class="col-md-12">
-            <div class="col-md-3"><h5><b>Descripción</b></h5></div>
-            <div class="col-md-9"><textarea class="form-control" rows="4" id="descripcionPadre"></textarea></div>
-        </div>
-
-        <div class="col-md-12">
-            <br>
-            <div class="col-md-3"><h5><b>Estado</b></h5></div>
-            <div class="col-md-9">
-                <div class="form-group">
-                    <select class="form-control" id="estadoPadre">
-                        <option>Activo</option>
-                        <option>Inactivo</option>
-                    </select>
+    <md-dialog-content>
+        <div class="panel panel-default">
+            <div class="panel-heading" align="center">
+                <h4>
+                    <b>Agregar Recurso Padre</b>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <h5>
+                            <b>Nombre</b>
+                        </h5>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="nombrePadre" ng-model="agregarPadre.nombre">
+                    </div>
                 </div>
+
+                <br>
+                <br>
+                <br>
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <h5>
+                            <b>Descripción</b>
+                        </h5>
+                    </div>
+                    <div class="col-md-9">
+                        <textarea class="form-control" rows="4" id="descripcionPadre" ng-model="agregarPadre.descripcion"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <br>
+                    <div class="col-md-3">
+                        <h5>
+                            <b>Estado</b>
+                        </h5>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <select class="form-control" id="estadoPadre" ng-model="agregarPadre.activo">
+                                <option ng-value="true">Activo</option>
+                                <option ng-value="false">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
             </div>
         </div>
+        <md-dialog-content>
+            <md-dialog-actions>
 
-       <br><br>
-    </div>
-    <div class="panel-footer">
-        <div class="col-md-4 col-md-offset-3" align="center"><button type="button" class="btn btn-success">Agregar</button></div>
-        <div class="col-md-2" align="center"><button type="button" class="btn btn-danger">Cerrar</button></div>
-    </div>
-</div>
+                <div class="col-md-4 col-md-offset-3" align="center">
+                    <button type="button" class="btn btn-success" ng-click="agregarPadre.guardar_padre()">Agregar</button>
+                </div>
+                <div class="col-md-2" align="center">
+                    <button type="button" class="btn btn-danger" ng-click="agregarPadre.cerrar_md_dialog()">Cerrar</button>
+                </div>
+            </md-dialog-actions>
+
+</md-dialog>

@@ -8,7 +8,7 @@
  * Controller of the icaroClienteApp
  */
 angular.module('icaroClienteApp')
-.controller('RecursosAdministracionCtrl', function ($translate,$mdDialog,$scope,uiGridConstants) {
+.controller('RecursosAdministracionCtrl', function ($translate,$mdDialog,$scope,uiGridConstants,administrativaService) {
   var self = this;
 
   //GRID RECURSOS
@@ -35,8 +35,8 @@ angular.module('icaroClienteApp')
         width: "45%"
       },
       {
-        field: 'Estado',
-        displayName: 'Estado',
+        field: 'Activo',
+        displayName: 'Activo',
         width: "10%",
       },
       {
@@ -47,7 +47,7 @@ angular.module('icaroClienteApp')
       {
         field: 'Acciones',
         displayName: 'Acciones',
-        cellTemplate: '<div><div class="col-md-3"><a><span class="fa fa-plus" ng-click="grid.appScope.agregar_hijo()"></span></a></div> <div class="col-md-3"><a><span class="fa fa-pencil" ng-click="grid.appScope.editar_recurso(row.entity)"></span></a></div> <div class="col-md-3"><a><span class="fa fa-toggle-on" ng-click="grid.appScope.recursosAdministracion.cambiar_estado(row.entity)"></span></a></div></div>',
+        cellTemplate: '<div><div class="col-md-3"><a><span class="fa fa-plus" ng-click="grid.appScope.agregar_hijo(row.entity)"></span></a></div> <div class="col-md-3"><a><span class="fa fa-pencil" ng-click="grid.appScope.editar_recurso(row.entity)"></span></a></div> <div class="col-md-3"><a><span class="fa fa-toggle-on" ng-click="grid.appScope.recursosAdministracion.cambiar_estado(row.entity)"></span></a></div></div>',
         width: "10%",
       },
     ]
@@ -61,16 +61,15 @@ angular.module('icaroClienteApp')
 
 
   //Función para asignar controlador de la vista agregar_hijo.html
-  $scope.agregar_hijo = function(){
+  $scope.agregar_hijo = function(recurso_padre){
     $mdDialog.show({
       controller: "RecursosAgregarHijoCtrl",
       controllerAs: 'agregarHijo',
       templateUrl: 'views/recursos/agregar_hijo.html',
       parent: angular.element(document.body),
-      clickOutsideToClose:true,
       fullscreen: true,
       width: 300,
-      //locals: {idResolucion: row.entity.Id}
+      locals: {idRecurso: recurso_padre.Id}
     })
   };
 
@@ -107,8 +106,12 @@ angular.module('icaroClienteApp')
   };
 
 
+  administrativaService.get('recurso','').then(function(response) {
+    self.gridOptionsRecursos.data = response.data;
+  });
+
   // JSON PRUEBA
-  self.gridOptionsRecursos.data = [
+  /*self.gridOptionsRecursos.data = [
     {
       "Id": 8,
       "Nombre": "Recurso 7",
@@ -194,7 +197,7 @@ angular.module('icaroClienteApp')
       "Estado": false,
       "Padre": "Si",
     },
-  ]
+  ]*/
   // JSON PRUEBA
 
 });
